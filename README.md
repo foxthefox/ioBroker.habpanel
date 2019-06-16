@@ -2,7 +2,7 @@
 # ioBroker.habpanel
 =================
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.habpanel.svg)](https://www.npmjs.com/package/iobroker.habpanel)
+![Number of Installations](http://iobroker.live/badges/habpanel-installed.svg) ![Number of Installations](http://iobroker.live/badges/habpanel-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.habpanel.svg)](https://www.npmjs.com/package/iobroker.habpanel)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.habpanel.svg)](https://www.npmjs.com/package/iobroker.habpanel)
 
 [![NPM](https://nodei.co/npm/iobroker.habpanel.png?downloads=true)](https://nodei.co/npm/iobroker.habpanel/)
@@ -47,6 +47,22 @@ This adapter cannot be installed directly from github. Only from npm.
 
 
 ## Changelog
+
+### 0.3.5 (2019-04-15)
+* (yaming116) bugfix i18n
+
+### 0.3.4 (2019-02-04)
+* (janfromberlin) button widget did not handle primitive boolean commands
+* (matthiasgasser) fix time series query start date, adapted end date
+
+### 0.3.3 (2019-02-02)
+* (janfromberlin) fix button toggle functionality for true/false
+
+### 0.3.2 (2019-01-30)
+* (foxthefox) chart and timeline functionality fixed
+
+### 0.3.1 (2019-01-27)
+* (foxthefox) chart and timeline functionality added
 
 ### 0.2.6 (2019-01-14)
 * (jogibear9988) bugfix selection element

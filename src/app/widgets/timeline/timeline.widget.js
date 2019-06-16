@@ -155,29 +155,29 @@
         var partitionData = function (raw) {
             var partitions = [];
             if (!raw.data) return; //was raw.datapoints, bt this seems a bug datapoints is used in charts
+            if (raw.data.length > 0) {
+                var currentState = raw.data[0].state;
+                var currentStartTime = raw.data[0].time;
 
-            var currentState = raw.data[0].state;
-            var currentStartTime = raw.data[0].time;
-
-            for (var i = 1; i < raw.data.length; i++) {
-                if (raw.data[i].state !== currentState) {
-                    partitions.push({
-                        state: currentState,
-                        starting_time: currentStartTime,
-                        ending_time: raw.data[i].time
-                    });
-                    currentState = raw.data[i].state;
-                    currentStartTime = raw.data[i].time;
+                for (var i = 1; i < raw.data.length; i++) {
+                    if (raw.data[i].state !== currentState) {
+                        partitions.push({
+                            state: currentState,
+                            starting_time: currentStartTime,
+                            ending_time: raw.data[i].time
+                        });
+                        currentState = raw.data[i].state;
+                        currentStartTime = raw.data[i].time;
+                    }
                 }
+
+                // push the last partition
+                partitions.push({
+                    state: currentState,
+                    starting_time: currentStartTime,
+                    ending_time: Date.now()
+                });
             }
-
-            // push the last partition
-            partitions.push({
-                state: currentState,
-                starting_time: currentStartTime,
-                ending_time: Date.now()
-            });
-
             return partitions;
         };
 
@@ -214,10 +214,10 @@
 
         function getData() {
             var startDate = startTime();
-            var endDate = new Date().getTime(); //now is last
+            var endDate = new Date().getTime();
             vm.rawdata = [];
             for (var i = 0; i < vm.widget.series.length; i++) {
-                vm.rawdata[i] = OHService.getTimeSeries(vm.widget.service, vm.widget.series[i].item, startDate, endDate);
+                vm.rawdata[i] = OHService.getTimeSeries(vm.widget.service, vm.widget.series[i].item, startDate.getTime(), endDate);
                 //vm.rawdata[i] = $http.get('/rest/persistence/items/' + vm.widget.series[i].item + "?boundary=true&starttime=" + startDate.toISOString() + (vm.widget.service ? '&serviceId=' + vm.widget.service : ''));
             }
 

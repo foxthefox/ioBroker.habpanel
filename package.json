@@ -1,7 +1,7 @@
 {
   "name": "iobroker.habpanel",
   "description": "Dashboard based on HABPanel",
-  "version": "0.2.6",
+  "version": "0.3.5",
   "author": {
     "name": "Yannick Schaus",
     "email": "habpanel@schaus.net"
@@ -24,15 +24,15 @@
       "email": "jochen.kuehner@gmx.de"
     }
   ],
-  "homepage": "https://github.com/ioBroker/ioBroker.habpanel",
+  "homepage": "https://github.com/iobroker-community-adapters/ioBroker.habpanel",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ioBroker/ioBroker.habpanel"
+    "url": "https://github.com/iobroker-community-adapters/ioBroker.habpanel"
   },
   "licenses": [
     {
       "type": "EPL-1.0",
-      "url": "https://github.com/ioBroker/ioBroker.habpanel/blob/master/LICENSE"
+      "url": "https://github.com/iobroker-community-adapters/ioBroker.habpanel/blob/master/LICENSE"
     }
   ],
   "keywords": [
@@ -70,17 +70,20 @@
     "@vitalets/google-translate-api": "github:vitalets/google-translate-api",
     "configstore": "^4.0.0",
     "request": "^2.88.0",
-    "safe-eval": "^0.4.1"
+    "safe-eval": "^0.4.1",
+    "mocha": "^6.0.2",
+    "chai": "^4.1.2"
   },
   "dependencies": {
-    "bower": "^1.8.4"
+    "bower": "^1.8.4",
+    "@iobroker/adapter-core": "^1.0.3"
   },
   "bugs": {
-    "url": "https://github.com/ioBroker/ioBroker.habpanel/issues"
+    "url": "https://github.com/iobroker-community-adapters/ioBroker.habpanel/issues"
   },
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node node_modules/mocha/bin/mocha --exit",
     "prepublish": "node node_modules/gulp/bin/gulp default"
   },
   "license": "EPL-1.0"
